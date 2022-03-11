@@ -50,4 +50,9 @@ class PolyTreeNode
         end
         nil
     end
+
+    def inspect
+        @value.inspect + " C " + @children.inspect
+    end
+
 end
