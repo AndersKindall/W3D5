@@ -29,4 +29,26 @@ class PolyTreeNode
             raise "Not a child"
         end
     end
+
+    def dfs(target)
+        p value
+        return self if target == value
+            
+        @children.each do |child|
+            found = child.dfs(target)
+            return found if found
+        end
+        nil
+    end
+
+    def bfs(target)
+        q = [self]
+        until q.empty?
+            node = q.shift
+            
+            return node if node.value == target
+            q.concat(node.children).compact!
+        end
+        nil
+    end
 end
